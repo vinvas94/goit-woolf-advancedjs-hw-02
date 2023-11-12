@@ -59,10 +59,11 @@ function onStart() {
     const promoTime = selectedDate - currentDate;
     timerContent(convertMs(promoTime));
     refs.button.disabled = true;
+    refs.inputData.disabled = true;
 
     if (selectedDate - currentDate < 1000) {
       clearInterval(intervalId);
-      refs.button.disabled = false;
+      refs.inputData.disabled = false;
     }
   }, 1000);
 }

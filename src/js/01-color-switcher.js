@@ -8,6 +8,7 @@ const btnStart = document.querySelector('button[data-start]');
 const btnStop = document.querySelector('button[data-stop]');
 const body = document.querySelector('body');
 let timerId = null;
+btnStop.toggleAttribute('disabled');
 
 btnStart.addEventListener('click', onButton);
 function onButton() {

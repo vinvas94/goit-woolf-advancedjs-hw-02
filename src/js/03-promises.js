@@ -6,6 +6,7 @@ formEl.addEventListener('submit', onFormSubmit);
 
 function onFormSubmit(ev) {
   ev.preventDefault();
+
   let newDelay = Number(formEl.delay.value);
   for (let i = 1; i <= formEl.amount.value; i += 1) {
     createPromise(i, newDelay)
@@ -25,18 +26,18 @@ function onFormSubmit(ev) {
       });
     newDelay += Number(formEl.step.value);
   }
+  formEl.reset();
 }
 
 function createPromise(position, delay) {
   return new Promise((resolve, reject) => {
     const shouldResolve = Math.random() > 0.3;
-    const timeoutId = setTimeout(() => {
+    setTimeout(() => {
       if (shouldResolve) {
         resolve({ position, delay });
       } else {
         reject({ position, delay });
       }
-      clearTimeout(timeoutId);
     }, delay);
   });
 }
